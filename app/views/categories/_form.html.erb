@@ -1,0 +1,29 @@
+<%= form_for @category, remote: true do |f| %>
+    <div class="form-group">
+      <h4 class="control-label">Category data:</h4>
+    </div>
+
+    <div class="item form-group<%= @category.errors[:name].any? ? ' has-error has-feedback' : '' %>">
+      <%= f.label :name, "Category name: " %>
+      <div class="input-group">
+        <%= f.text_field :name, {:class=> "form-control", :placeholder=>"Name"} %>        
+        <%if @category.errors[:name].any? %>
+          <p class="bg-danger"><%= @category.errors[:nombre].to_s[/\w([^"]*)/] %></p>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="item form-group<%= @category.errors[:description].any? ? ' has-error has-feedback' : '' %>">
+      <%= f.label :description, "Category description:" %>
+      <div class="input-group">
+        <%= f.text_area :description, {class: "form-control", :placeholder=>"Description"} %>
+        <%if @category.errors[:description].any? %>
+          <p class="bg-danger"><%= @category.errors[:description].to_s[/\w([^"]*)/] %></p>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="actions col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+      <%= f.submit @category.new_record? ? "Create Category" : "Update Category", :class => "btn btn-success"%>
+    </div>  
+<% end %>

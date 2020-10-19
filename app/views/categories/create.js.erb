@@ -1,0 +1,13 @@
+$('#modalCategorias').modal('toggle');
+
+$('#tableCategories tr:last').after(
+  `
+    <tr id="category_<%= @category.id %>" >
+      <td><%= @category.name %></td>
+      <td><%= @category.description %></td>
+      <td><%= link_to 'Edit', edit_category_path(@category), html_options = {class: "btn btn-info btn-xs", remote: true} %> <%= link_to "Delete", @category, remote: true, method: :delete, data: { confirm: "¿Borrar categoria: #{@category.name}?"}, class: "btn btn-danger btn-xs" %></td>
+    </tr>
+  `
+  
+  );
+
