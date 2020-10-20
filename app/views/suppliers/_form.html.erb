@@ -25,7 +25,7 @@
     </div>
 
     <div class="item form-group<%= @supplier.errors[:phone].any? ? ' has-error has-feedback' : '' %>">
-      <%= f.label :phone, "supplier phone number" %>
+      <%= f.label :phone, "Supplier phone number" %>
       <div class="input-group">
         <%= f.text_field :phone, {:class=> "form-control", :placeholder=>"Phone number"} %>        
         <%if @supplier.errors[:phone].any? %>
