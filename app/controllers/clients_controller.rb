@@ -35,6 +35,8 @@ class ClientsController < ApplicationController
   end
 
   def destroy
+    @client.destroy
+
     respond_to do |format|
       format.js
     end
