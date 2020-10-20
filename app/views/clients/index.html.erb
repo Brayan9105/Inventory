@@ -1,0 +1,40 @@
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Clientes</h1>
+<!-- DataTales Example -->
+<div>  
+  <%= link_to new_client_path, {remote: true, class: "btn btn-info", id: "anadir-cliente-btn"}  do %>
+    <span class="fas fa-plus-square" style="">New Client</span>
+  <% end %>
+</div>
+<br />
+<div class="card shadow mb-4">
+<div class="card-body">
+    <div class="table-responsive">
+    <table class="table table-bordered" id="tableClients" width="100%" cellspacing="0">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+            <% @clients.each do |client| %>
+            <tr id="client_<%= client.id %>" >
+                <td><%= client.name %></td>
+                <td><%= client.address %></td>
+                <td><%= client.phone %></td>
+                <td>
+                <%= link_to "Edit", edit_client_path(client), html_options = {class: "btn btn-info btn-xs", remote: true} %>
+                <%= link_to "Delete", client, remote: true, method: :delete, data: { confirm: "¿Borrar cliente: #{client.name}?"}, class: "btn btn-danger btn-xs" %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+<%= render 'modal_clients' %>
