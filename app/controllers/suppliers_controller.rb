@@ -6,7 +6,7 @@ class SuppliersController < ApplicationController
   end
 
   def new
-    @supplir = Supplier.new
+    @supplier = Supplier.new
 
     respond_to do |format|
       format.js
@@ -14,10 +14,10 @@ class SuppliersController < ApplicationController
   end
 
   def create
-    @supplir = Supplit.new(supplier_params)
+    @supplier = Supplier.new(supplier_params)
     
     respond_to do |format|
-      if @supplir.save
+      if @supplier.save
         format.js
       else
         format.js {render :new}
@@ -33,7 +33,7 @@ class SuppliersController < ApplicationController
 
   def update
     respond_to do |format|
-      if @supplir.update(supplier_params)
+      if @supplier.update(supplier_params)
         format.js
       else
         format.js {render :edit}
@@ -42,7 +42,7 @@ class SuppliersController < ApplicationController
   end
 
   def destroy
-    @client.destroy
+    @supplier.destroy
 
     respond_to do |format|
       format.js
