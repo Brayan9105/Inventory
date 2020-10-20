@@ -44,17 +44,18 @@ class SuppliersController < ApplicationController
   def destroy
     @client.destroy
 
-    respond_to |format|
+    respond_to do |format|
       format.js
     end
   end
 
   private
-  def set_supplier
-    @supplier = Supplier.find(params[:id])
-  end
 
-  def supplier_params
-    params.require(:supplier).permit(:name, :address, :phone)
-  end
+    def set_supplier
+      @supplier = Supplier.find(params[:id])
+    end
+
+    def supplier_params
+      params.require(:supplier).permit(:name, :address, :phone)
+    end
 end

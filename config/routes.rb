@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :categories
   resources :clients
+  resources :suppliers
 
   devise_for :users, except: [:show]
   
