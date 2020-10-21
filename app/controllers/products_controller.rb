@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   before_action :set_supplier, only: [:new, :edit]
   
   def index
-    @products = Products.all  
+    @products = Product.all  
   end
 
   def new
