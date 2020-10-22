@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     respond_to do |format|
-      if @products.save
+      if @product.save
         format.js
       else
         format.js {render :new}
