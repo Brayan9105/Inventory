@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    repond_to do |format|
+    respond_to do |format|
       if @product.update(product_params)
         format.js
       else
